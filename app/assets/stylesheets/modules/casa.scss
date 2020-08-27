@@ -1,0 +1,126 @@
+*{
+  box-sizing: border-box;
+}
+
+@media screen and (min-width:500px){
+  .header{
+    width: 100vw;
+    height: 100px;
+    display: block;
+    position: absolute;
+    background-color: khaki;
+    &__nav{
+      visibility: visible;
+      margin: 10px 10px;
+      cursor: pointer;
+    }
+    &__logo{
+      position: absolute;
+      top: 30px;
+      left: 200px;
+      margin: 0 auto;
+      h1{
+        color: hotpink;
+        font-size: 40px;
+        font-family: "Meows";
+      }
+    }
+    &__menu{
+      visibility: hidden;
+    }
+    &__user{
+      visibility: hidden;
+    }
+    &__drop-menu.show{
+
+    }
+    &__drop-menu.not-show{
+      display: none;
+    }
+  }
+}
+
+@media screen and (min-width:720px){
+  .header{
+    width: 100vw;
+    height: 100px;
+    display: block;
+    position: absolute;
+    background-color: khaki;
+    &__nav{
+      visibility: visible;
+      margin: 10px 10px;
+      cursor: pointer;
+    }
+    &__logo{
+      position: absolute;
+      top: 30px;
+      left: 200px;
+      margin: 0 auto;
+      h1{
+        color: hotpink;
+        font-size: 60px;
+        font-family: "Lova Bear";
+      }
+    }
+    &__menu{
+      visibility: hidden;
+    }
+    &__user{
+      visibility: hidden;
+    }
+    &__drop-menu.show{
+
+    }
+    &__drop-menu.not-show{
+      display: none;
+    }
+  }
+}
+
+@media screen and (min-width:960px){
+  .header{
+    width: 100vw;
+    height: 100px;
+    display: block;
+    position: absolute;
+    background-color: khaki;
+    &__nav{
+      visibility: hidden;
+    }
+    &__logo{
+      position: absolute;
+      top: 30px;
+      left: 200px;
+      margin: 0 auto;
+      h1{
+        color: hotpink;
+        font-size: 60px;
+        font-family: "Simon-Regular";
+      }
+    }
+    &__menu{
+      visibility: visible;
+      position: absolute;
+      top: 40px;
+      right: 10px;
+      &__lists{
+        display: flex;
+        .menu__list{
+          font-size: 15px;
+        }
+      }
+    }
+    &__user{
+      visibility: visible;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 15px;
+      padding-bottom: 10px;
+    }
+    &__drop-menu{
+      display: none;
+    }
+  }
+}

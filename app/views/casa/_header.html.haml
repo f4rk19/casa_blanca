@@ -21,26 +21,29 @@
 .header__user
   Log in
 .header__drop-menu.not-show
-  %ul.drop-menu-lists
-    %li.user-menu
-      Log in
-    %li.casa-menu
-      %ul.casa-menu__lists
-        %li.casa-menu__list
-          Hostels
-        %li.casa-menu__list
-          Hotels
-        %li.casa-menu__list
-          Groups
-        %li.casa-menu__list
-          Blogs
-    %li.help-menu
-      %ul.heip-menu__lists
-        %li.help-menu__list
-          About Us
-        %li.help-menu__list
-          Work With Us
-        %li.help-menu__list
-          Customer Service
-        %li.help-menu__list
-          Website Feedback
+  .drop-menu
+    %ul.drop-menu__lists
+      %li.user-menu
+        Log in
+      %li.casa-menu
+        %ul.casa-menu__lists
+          %li.casa-menu__list
+            Hostels
+          %li.casa-menu__list
+            Hotels
+          %li.casa-menu__list
+            Groups
+          %li.casa-menu__list
+            Blogs
+      %li.help-menu
+        %ul.heip-menu__lists
+          %li.help-menu__list
+            About Us
+          %li.help-menu__list
+            Work With Us
+          %li.help-menu__list
+            Customer Service
+          %li.help-menu__list
+            Website Feedback
+    .drop-menu__btn
+      = icon("fas","times", class: "drop-menu__btn-icon")

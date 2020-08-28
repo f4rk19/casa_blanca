@@ -32,7 +32,34 @@
       visibility: hidden;
     }
     &__drop-menu.show{
+      position: absolute;
+      top: 0;
+      .drop-menu{
+        &__lists{
+          .user-menu{
 
+          }
+          .casa-menu{
+            &__lists{
+              .casa-menu__list{
+
+              }
+            }
+          }
+          .help-menu{
+            &__lists{
+              .help-menu__list{
+
+              }
+            }
+          }
+        }
+        &__btn{
+          &-icon{
+
+          }
+        }
+      }
     }
     &__drop-menu.not-show{
       display: none;

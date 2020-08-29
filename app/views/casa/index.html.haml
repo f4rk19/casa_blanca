@@ -1,2 +1,57 @@
 .header
   = render "header"
+.main
+  .main__upper
+    .main__upper-slick
+      .slick-list
+        = image_tag "oia-416136_1920.jpg", class: "slick-list__image"
+      .slick-list
+        = image_tag "white-village-5361750_1920.jpg", class: "slick-list__image"
+      .slick-list
+        = image_tag "city-4820579_1920.jpg", class: "slick-list__image"
+  .main__search-form
+    %input.main__search-form__text{type: "text", placeholder: "Search by city or hostel name..."}
+    %input.main__search-form__date-start{type: "date", value: "2020-01-01"}
+    %input.main__search-form__date-end{type: "date", value: "2020-01-01"}
+    %input.main__search-form__guest{type: "select", prompt: "Guest"}
+    %input.main__search-form__btn{type: "submit", value: "Search"}
+  .main__search-form-js
+    %input.main__search-form-js{tyoe: "text", placeholder: "Search by city or hostel name..."}
+  .main__search-form-mobile.not-show
+    .search-mobile
+      .search-mobile__title
+        %span Search
+      .search-mobile__input
+        %input{type: "text", placeholder: "Search by city or hostel name..."}
+      .search-mobile__close
+        = icon("fas","times", class: "search-mobile__close-icon")
+  .main__list
+    .main__list__related-casa
+      .main__list__related-casa-title
+        %h2.main_list___related-casa-title-text
+          %span Hostels you might like
+      %ul.main__list__related-casa-lists
+        %li.main__list__related-casa-list
+          = image_tag "japan-1366872_1920.jpg", class: "main__list__related-casa-list-image", alt: "casa-image"
+        %li.main__list__related-casa-list
+          = image_tag "pool-720697_1280.jpg", class: "main__list__related-casa-list-image", alt: "casa-image"
+        %li.main__list__related-casa-list
+          = image_tag "window-3178666_1920.jpg", class: "main__list__related-casa-list-image", alt: "casa-image"
+        %li.main__list__related-casa-list
+          = image_tag "castle-park-806854_1920.jpg", class: "main__list__related-casa-list-image", alt: "casa-image"
+        %li.main__list__related-casa-list
+          = image_tag "beach-house-1505461_1920.jpg", class: "main__list__related-casa-list-image", alt: "casa-image"
+    .mai__list__recommend
+      .main__list__recommend-title
+        %h2.main__list__recommend-title-text
+          %span Top Destinations
+      %ul.main__list__recommend-lists
+        %li.main__list__recommend-list
+          = image_tag "canal-1209808_1920.jpg", class: "main__list__recommend-list-image", alt: "place-image"
+        %li.main__list__recommend-list
+          = image_tag "water-4848741_1920.jpg", class: "main__list__recommend-list-image", alt: "place-image"
+        %li.main__list__recommend-list
+          = image_tag "hungary-4544781_1920.jpg", class: "main__list__recommend-list-image", alt: "place-image"
+
+.footer
+  =render "footer"

@@ -44,6 +44,14 @@
         %br/
         =f.text_field :family_name, placeholder: "family name", class: "field__input"
         = icon("far", "user", class: "field__icon")
+      .field
+        = f.label :gender, class: "field__label"
+        %br/
+        =f.select :gender, User.genders.keys, {include_blank: "Gender"}, {class: "field__select"}
+      .field
+        = f.label :nationality_id, class: "field__label"
+        %br/
+        = f.collection_select(:nationality_id, Nationality.all, :id, :name,{include_blank: "Nationality"}, class: "field__select")
       .field-birthday
         = f.label :birthday, class: "field-birthday__label"
         %br/

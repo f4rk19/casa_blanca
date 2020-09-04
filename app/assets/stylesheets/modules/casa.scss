@@ -259,7 +259,7 @@
               margin: 20px 10px;
               a{
                 text-decoration: none;
-                color: #ffffff;
+                color: hotpink;
               }
             }
           }
@@ -687,6 +687,9 @@
         border: 1px solid #ffffff;
         color: #ffffff;
         width: 18%;
+      }
+      &__date-end::placeholder{
+        color: #ffffff;
       }
       &__guest{
         padding: 10px;

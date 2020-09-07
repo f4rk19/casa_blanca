@@ -1,10 +1,21 @@
-%h2 Forgot your password?
-= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .actions
-    = f.submit "Send me reset password instructions"
+.Header
+  .Header__inner
+    = link_to root_path, class: "Header__inner-link" do
+      %h2 casa blanca
+.sign-up
+  .sign-up__upper
+    = image_tag "door-2096367_1920.jpg", class: "sign-up__upper-image"
+    %h2.sign-up__upper-text1 Forgot
+    %h2.sign-up__upper-text2 Password?
+    %p No worries
+  .sign-up__middle
+    %h2 Forgot your password?
+    = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+      = render "devise/shared/error_messages", resource: resource
+      .field
+        = f.label :email
+        %br/
+        = f.email_field :email, autofocus: true, autocomplete: "email"
+      .actions
+        = f.submit "Send me reset password instructions"
 = render "devise/shared/links"

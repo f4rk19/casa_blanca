@@ -9,7 +9,8 @@
     %h2.sign-up__upper-text2 Account
     %p Free to Sign Up
   .sign-up__middle
-    = form_for @user, url: user_registration_path(current_user), html: { method: :patch } do |f|
+    -# = form_for @user, url: user_registration_path(current_user), html: { method: :patch } do |f|
+    = form_for(@user, url: user_registration_path)  do |f|
       = render "devise/shared/error_messages", resource: resource
       .field
         = f.label :nickname, class: "field__label"
@@ -48,10 +49,12 @@
         = f.label :gender, class: "field__label"
         %br/
         =f.select :gender, User.genders.keys, {include_blank: "Gender"}, {class: "field__select"}
+        = icon("far", "user", class: "field__icon")
       .field
         = f.label :nationality_id, class: "field__label"
         %br/
-        = f.collection_select(:nationality_id, Nationality.all, :id, :name,{include_blank: "Nationality"}, class: "field__select")
+        = f.collection_select(:nationality_id, Nationality.all, :id, :name,{include_blank: "Nationality", class: "blank"}, class: "field__select")
+        = icon("far", "flag", class: "field__icon")
       .field-birthday
         = f.label :birthday, class: "field-birthday__label"
         %br/

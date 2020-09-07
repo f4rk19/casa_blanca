@@ -19,16 +19,22 @@
     %li.menu__list
       Blogs
 .header__user
-  = link_to new_user_session_path do
-    Log in
+  -if user_signed_in?
+    = current_user.nickname
+  -else
+    = link_to new_user_session_path do
+      Log in
 .header__drop-menu.not-show
   .drop-menu
     %ul.drop-menu__lists
       %li.user-menu
         = icon("fas","laugh-wink", class: "user-menu__icon")
         .user-menu__text
-          = link_to new_user_session_path do
-            %span Log in
+          -if user_signed_in?
+            = current_user.nickname
+          -else
+            = link_to new_user_session_path do
+              %span Log in
       %li.casa-menu
         casa
         %ul.casa-menu__lists

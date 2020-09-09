@@ -9,7 +9,7 @@
     %h2.sign-up__upper-text2-sign-in Create Account
     %p Free to Sign Up
   .sign-up__middle
-    = form_for @user, url: user_registration_path(current_user), html: { method: :patch } do |f|
+    = form_for @user, url: user_session_path(current_user) do |f|
       = render "devise/shared/error_messages", resource: resource
       .field
         = f.label :email, class: "field__label"

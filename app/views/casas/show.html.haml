@@ -1,0 +1,103 @@
+.header
+  = render 'header'
+.main
+  .main__upper
+    .main__upper-slick
+      .slick-list
+        = image_tag "beach-house-1505461_1920.jpg", class: "slick-list__image"
+      .slick-list
+        = image_tag "castle-park-806854_1920.jpg", class: "slick-list__image"
+      .slick-list
+        = image_tag "window-3178666_1920.jpg", class: "slick-list__image"
+  .main__search-form
+    %input.main__search-form__text{type: "text", placeholder: "Search by city or hostel name..."}
+    %input.main__search-form__date-start{type: "date", value: "2020-01-01"}
+    %input.main__search-form__date-end{type: "date", value: "2020-01-01"}
+    %input.main__search-form__guest{type: "select", prompt: "Guest"}
+    %input.main__search-form__btn{type: "submit", value: "Search"}
+  .main__casa
+    .casa__title
+      %span casa sample
+    .casa__place
+      %span casa place sample
+  .main__nav
+    %ul.main__nav-lists
+      %li.nav-list.active
+        %span Overview
+      %li.nav-list
+        %span Reviews
+      %li.nav-list
+        %span Map
+    %ul.main__nav-contents
+      %li.nav-content.show
+        .nav-content__overview
+          .overview-upper
+            .overview-upper__introduction
+              %p.overview-upper__introduction-text sample information
+            .overview-upper__images
+              %ul.images__lists
+                %li.images__list
+                  = image_tag "beach-house-1505461_1920.jpg", class: "images__list-image"
+                %li.images__list
+                  = image_tag "beach-house-1505461_1920.jpg", class: "images__list-image"
+                %li.images__list
+                  = image_tag "beach-house-1505461_1920.jpg", class: "images__list-image"
+                %li.images__list
+                  = image_tag "beach-house-1505461_1920.jpg", class: "images__list-image"
+          .overview-rating
+            %span sample rating
+          .overview-information
+            %ul.overview-information__lists
+              %li.information-list
+                .information-list__title
+                  %p.information-list__text Facilities
+                  .information-list__icon
+                    = icon("fas", "angle-down")
+                .information-hidden.not-show
+                  %ul.information-hidden__lists
+                    %li.hidden-list
+                      %span Free wifi
+                    %li.hidden-list
+                      %span Lockers
+                    %li.hidden-list
+                      %span Breakfast Not Included
+                  .information-hidden__icon
+                    = icon("fas", "angle-up")
+              %li.information-list
+                .information-list__title
+                  %p.information-list__text  Important Information
+                  .information-list__icon
+                    = icon("fas", "angle-down")
+                .information-hidden.not-show
+                  %p.information-hidden__text Inportant Information sample
+                  .information-hidden__icon
+                    = icon("fas", "angle-up")
+              %li.information-list
+                .information-list__title
+                  %p.information-list__text Check-in / Check-out
+                  .information-list__icon
+                    = icon("fas", "angle-down")
+                .information-hidden.not-show
+                  %p.information-hidden__text Earliest check-in: 15:00
+                  %p.information-hidden__text Latest Check-out: 11:00
+                  .information-hidden__icon
+                    = icon("fas", "angle-up")
+              %li.information-list
+                .information-list__title
+                  %p.information-list__text Policies
+                  .information-list__icon
+                    = icon("fas", "angle-down")
+                .information-hidden.not-show
+                  %p.information-hidden__text Policies sample
+                  .information-hidden__icon
+                    = icon("fas", "angle-up")
+          .overview-rooms
+          .overview-detail
+            .overview-detail__text
+              %span sample
+      %li.nav-content
+        .nav-content__reviews
+      %li.nav-content
+        .nav-content__map
+.footer
+  = render "footer"

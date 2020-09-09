@@ -1,0 +1,11 @@
+.header-form
+  %h1.header-form__title
+    %span casa blanca
+.main-form
+  .main-form__field
+    =form_with model: @casa, local: true do |f|
+      %h2.main-form__field__title
+        Write Your Information
+      .main-form__field__text
+        =f.label :information, class: "main-form__field__text-label"
+        =f.text_area :information, placeholder: "main information", class: "main-form__field__text-form"

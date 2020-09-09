@@ -1,0 +1,32 @@
+.Header
+  .Header__inner
+    = link_to root_path, class: "Header__inner-link" do
+      %h2 casa blanca
+.sign-up
+  .sign-up__upper
+    = image_tag "door-2096367_1920.jpg", class: "sign-up__upper-image"
+    %h2.sign-up__upper-text1-sign-in Sign In or
+    %h2.sign-up__upper-text2-sign-in Create Account
+    %p Free to Sign Up
+  .sign-up__middle
+    = form_for @user, url: user_session_path(current_user) do |f|
+      = render "devise/shared/error_messages", resource: resource
+      .field
+        = f.label :email, class: "field__label"
+        %br/
+        = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "email", class:"field__input"
+        =icon("fas","at", class: "field__icon")
+      .field
+        = f.label :password, class: "field__label"
+        %br/
+        = f.password_field :password, autocomplete: "current-password", class: "field__input",placeholder: "password"
+        = icon("fas", "lock", class: "field__icon")
+      - if devise_mapping.rememberable?
+        .field
+          = f.check_box :remember_me
+          = f.label :remember_me
+      .actions
+        = f.submit "Sign in", class: "actions-btn"
+  .sign-up__rower
+    %p Don't have an account?
+    = render "devise/shared/links"

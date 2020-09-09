@@ -19,13 +19,24 @@
     %li.menu__list
       Blogs
 .header__user
-  Log in
+  -if user_signed_in?
+    = current_user.nickname
+  -else
+    = link_to new_user_session_path do
+      Log in
 .header__drop-menu.not-show
   .drop-menu
     %ul.drop-menu__lists
       %li.user-menu
-        Log in
+        = icon("fas","laugh-wink", class: "user-menu__icon")
+        .user-menu__text
+          -if user_signed_in?
+            = current_user.nickname
+          -else
+            = link_to new_user_session_path do
+              %span Log in
       %li.casa-menu
+        casa
         %ul.casa-menu__lists
           %li.casa-menu__list
             Hostels
@@ -36,7 +47,8 @@
           %li.casa-menu__list
             Blogs
       %li.help-menu
-        %ul.heip-menu__lists
+        help
+        %ul.help-menu__lists
           %li.help-menu__list
             About Us
           %li.help-menu__list

@@ -9,3 +9,14 @@
       .main-form__field__text
         =f.label :information, class: "main-form__field__text-label"
         =f.text_area :information, placeholder: "main information", class: "main-form__field__text-form"
+      .main-form__field__images
+        Upload your images
+        #image-box
+          - @casa.images.each_with_index do |image, i|
+          -# #previews
+          -# #labels
+          -#   #label.label-content-0
+              -# = f.fields_for :images do |image|
+              -#   =image.label :src, {id:"label-box--#{image.index}", class:"js-file_group", "data-index" => "#{image.index}"} do
+              -#     = icon("fas", "camera", class: "label-box-icon")
+              -#     = image.file_field :src, class: "js-file"

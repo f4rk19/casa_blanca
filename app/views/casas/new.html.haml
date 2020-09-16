@@ -12,11 +12,23 @@
       .main-form__field__images
         Upload your images
         #image-box
-          - @casa.images.each_with_index do |image, i|
-          -# #previews
-          -# #labels
-          -#   #label.label-content-0
-              -# = f.fields_for :images do |image|
-              -#   =image.label :src, {id:"label-box--#{image.index}", class:"js-file_group", "data-index" => "#{image.index}"} do
-              -#     = icon("fas", "camera", class: "label-box-icon")
-              -#     = image.file_field :src, class: "js-file"
+          #previews
+          #labels
+            #label.label-content-0
+              -if @casa.persisted?
+                - @casa.images.each_with_index do |image, i|
+                  = image_tag image.src.url, data: { index: i}, width: "100", height: "100"
+              = f.fields_for :images do |image|
+                = image.label :src ,{id:"label-box--#{image.index}", class:"js-file_group", "data-index" => "#{image.index}"} do
+                  =icon("fas","camera",class: "label-box-icon")
+                  %pre.label-box__text-visible クリックしてファイルをアップロード
+                  = image.file_field :src, class: 'js-file'
+                - if @casa.persisted?
+                  = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+              - if @casa.persisted?
+                .js-file_group{"data-index" => "#{@casa.images.count}"}
+                  = file_field_tag :src, name: "product[images_attributes][#{@casa.images.count}][src]", class: "js-file"
+                  .js-remove 削除
+      .main-form__field__important-information
+        =f.label :important_information, class: "main-form__field__text-label"
+        =f.text_area :important_information, placeholder: "important imformation", class: "main-form__field__text-form"

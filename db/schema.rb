@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_08_135143) do
+ActiveRecord::Schema.define(version: 2020_09_16_104212) do
+
+  create_table "casa_facilities", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "casa_id"
+    t.bigint "facility_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["casa_id"], name: "index_casa_facilities_on_casa_id"
+    t.index ["facility_id"], name: "index_casa_facilities_on_facility_id"
+  end
 
   create_table "casas", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -21,6 +30,10 @@ ActiveRecord::Schema.define(version: 2020_09_08_135143) do
     t.text "cancell"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "facilities", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "facilityname"
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -55,5 +68,7 @@ ActiveRecord::Schema.define(version: 2020_09_08_135143) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "casa_facilities", "casas"
+  add_foreign_key "casa_facilities", "facilities"
   add_foreign_key "images", "casas"
 end

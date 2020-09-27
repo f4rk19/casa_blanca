@@ -4,6 +4,7 @@
 @import "slick-theme";
 @import "slick";
 @import "modules/flash";
-@import "modules/sign_up.scss";
-@import "modules/casa.scss";
-@import "modules/show.scss";
+@import "modules/user/sign_up.scss";
+@import "modules/casa/casa.scss";
+@import "modules/casa/show.scss";
+@import "modules/casa/form.scss";

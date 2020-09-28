@@ -4,7 +4,7 @@ $(document).on('turbolinks:load', ()=> {
                 <div class="label-content-${num}", id="label">
                   <label data-index="${num}" class="js-file_group" for="product_images_attributes_${num}_src">
                     <i class="fas fa-camera label-box-icon"></i>
-                    <pre class="label-box__text-visible">クリックしてアップロード</pre>
+                    <pre class="label-box__text-visible">upload image</pre>
                     <input class="js-file" type="file", name="product[images_attributes][${num}][src]", id="product_images_attributes_${num}_src">
                   </label>
                 </div>
@@ -20,7 +20,7 @@ $(document).on('turbolinks:load', ()=> {
                   </div>
                   <div class="lower-box">
                     <div class="delete-box" id="delete_btn_${index}">
-                      <span>削除</span>
+                      <span>delete</span>
                     </div>
                   </div>
                 </div>
@@ -33,7 +33,7 @@ $(document).on('turbolinks:load', ()=> {
                  <div class="label-content-small-${id}", id="label">
                   <label data-index="${id}" class="js-file_group" for="product_images_attributes_${id}_src">
                     <i class="fas fa-camera label-box-icon"></i>
-                    <pre class="label-box__text-visible">クリックしてアップロード</pre>
+                    <pre class="label-box__text-visible">upload image</pre>
                     <input class="js-file" type="file", name="product[images_attributes][${id}][src]", id="product_images_attributes_${id}_src">
                   </label>
                 </div>
@@ -56,18 +56,14 @@ $(document).on('turbolinks:load', ()=> {
     if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
       img.setAttribute('src', blobUrl);
     } else {
-      if ($('.preview-box').length < 5) {
-        $('#previews').append(buildImg(targetIndex, blobUrl));
-        $('#label').css("display","none");
-        $(`.label-content-${targetIndex}`).css("display","none");
-        $(`.label-content-small-${targetIndex}`).css("display","none");
-        $('.label-content-edit__add').css("display", "none")
-      }
-      if ($('#labels div').length < 5) {
-        $('#labels').append(buildFileField(fileIndex[0]));
-        fileIndex.shift();
-        fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
-      }
+      $('#previews').append(buildImg(targetIndex, blobUrl));
+      $('#label').css("display","none");
+      $(`.label-content-${targetIndex}`).css("display","none");
+      $(`.label-content-small-${targetIndex}`).css("display","none");
+      $('.label-content-edit__add').css("display", "none")
+      $('#labels').append(buildFileField(fileIndex[0]));
+      fileIndex.shift();
+      fileIndex.push(fileIndex[fileIndex.length - 1] + 1);
     }
   });
 

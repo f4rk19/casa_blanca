@@ -15,7 +15,7 @@
       cursor: pointer;
       font-size: 25px;
       color: #ffffff;
-      text-shadow: 1px 1px 2px hotpink;
+      text-shadow: 1px 1px 2px #4689FF;
     }
     &__logo{
       position: absolute;
@@ -26,7 +26,7 @@
         color: #ffffff;
         font-size: 50px;
         font-family: "Lova Bear";
-        text-shadow: 1px 1px 2px hotpink;
+        text-shadow: 1px 1px 2px #4689FF;
       }
     }
     &__menu{
@@ -55,11 +55,11 @@
             }
             &__text{
               font-size: 14px;
-              color: hotpink;
+              color: #4689FF;
               margin: 20px 10px;
               a{
                 text-decoration: none;
-                color: hotpink;
+                color: #4689FF;
               }
             }
           }
@@ -184,7 +184,7 @@
         color: #ffffff;
         font-size: 30px;
         font-family: "Lova Bear";
-        text-shadow: 1px 1px 2px hotpink;
+        text-shadow: 1px 1px 2px #4689FF;
       }
       &-middle{
         .footer_icon-google{
@@ -215,7 +215,7 @@
       cursor: pointer;
       font-size: 25px;
       color: #ffffff;
-      text-shadow: 1px 1px 2px hotpink;
+      text-shadow: 1px 1px 2px #4689FF;
     }
     &__logo{
       position: absolute;
@@ -226,7 +226,7 @@
         color: #ffffff;
         font-size: 50px;
         font-family: "Lova Bear";
-        text-shadow: 1px 1px 2px hotpink;
+        text-shadow: 1px 1px 2px #4689FF;
       }
     }
     &__menu{
@@ -255,11 +255,11 @@
             }
             &__text{
               font-size: 14px;
-              color: hotpink;
+              color: #4689FF;
               margin: 20px 10px;
               a{
                 text-decoration: none;
-                color: hotpink;
+                color: #4689FF;
               }
             }
           }
@@ -374,11 +374,18 @@
         width: 680px;
         margin: 10px auto;
         &-title{
-          font-size: 40px;
-          font-weight: bold;
-          font-family: "GleennAfterSchool";
-          color: hotpink;
           margin: 30px;
+          &-text{
+            font-size: 40px;
+            font-weight: bold;
+            font-family: 'Fosterama';
+            color: #4689FF;
+          }
+          &-icon{
+            font-size: 30px;
+            font-family:'SummerCoastExtra';
+            color: #4689FF;
+          }
         }
         &-lists{
           display: flex;
@@ -494,8 +501,8 @@
         &-title{
           font-size: 40px;
           font-weight: bold;
-          font-family: "GleennAfterSchool";
-          color: hotpink;
+          font-family: 'Fosterama';
+          color: #4689FF;
           margin: 30px;
         }
         &-lists{
@@ -603,7 +610,7 @@
         color: #ffffff;
         font-size: 50px;
         font-family: "Lova Bear";
-        text-shadow: 1px 1px 2px hotpink;
+        text-shadow: 1px 1px 2px #4689FF;
       }
     }
     &__menu{
@@ -617,7 +624,7 @@
           font-size: 15px;
           color: #ffffff;
           font-weight: bold;
-          text-shadow: 1px 1px 2px hotpink;
+          text-shadow: 1px 1px 2px #4689FF;
         }
       }
     }
@@ -633,7 +640,7 @@
       border-radius: 10px;
       padding: 8px;
       font-weight: bold;
-      text-shadow: 1px 1px 2px hotpink;
+      text-shadow: 1px 1px 2px #4689FF;
       background-color:rgba($color:  #353c42, $alpha: 0.6);
       a{
         text-decoration: none;
@@ -739,11 +746,18 @@
         width: 1100px;
         margin: 10px auto;
         &-title{
-          font-size: 40px;
-          font-weight: bold;
-          font-family: "GleennAfterSchool";
-          color: hotpink;
           margin: 30px;
+          &-text{
+            font-size: 40px;
+            font-weight: bold;
+            font-family: 'Fosterama';
+            color: #4689FF;
+          }
+          &-icon{
+            font-size: 30px;
+            font-family:'SummerCoastExtra';
+            color: #4689FF;
+          }
         }
         &-lists{
           display: flex;
@@ -881,8 +895,8 @@
         &-title{
           font-size: 40px;
           font-weight: bold;
-          font-family: "GleennAfterSchool";
-          color: hotpink;
+          font-family: 'Fosterama';
+          color: #4689FF;
           margin: 30px;
         }
         &-lists{

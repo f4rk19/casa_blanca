@@ -8,7 +8,7 @@
         color: #ffffff;
         font-size: 60px;
         font-family: "Lova Bear";
-        text-shadow: 1px 1px 2px skyblue;
+        text-shadow: 1px 1px 2px #4689FF;
         z-index: 4;
         position: absolute;
         top: 10px;
@@ -35,7 +35,7 @@
       position: absolute;
       top: 90px;
       left: 45%;
-      text-shadow: 1px 1px 2px skyblue;
+      text-shadow: 1px 1px 2px #4689FF;
     }
     &-text2{
       font-size: 30px;
@@ -44,7 +44,7 @@
       position: absolute;
       top: 130px;
       left: 43%;
-      text-shadow: 1px 1px 2px skyblue;
+      text-shadow: 1px 1px 2px #4689FF;
     }
     &-text1-sign-in{
       font-size: 30px;
@@ -53,7 +53,7 @@
       position: absolute;
       top: 90px;
       left: 43%;
-      text-shadow: 1px 1px 2px skyblue;
+      text-shadow: 1px 1px 2px #4689FF;
     }
     &-text2-sign-in{
       font-size: 30px;
@@ -62,12 +62,12 @@
       position: absolute;
       top: 130px;
       left: 37%;
-      text-shadow: 1px 1px 2px skyblue;
+      text-shadow: 1px 1px 2px #4689FF;
     }
     p{
       font-size: 20px;
       color: #ffffff;
-      text-shadow: 1px 1px 2px skyblue;
+      text-shadow: 1px 1px 2px #4689FF;
       position: absolute;
       top: 180px;
       left: 42%;
@@ -129,9 +129,9 @@
         &-btn{
           margin: 0 auto;
           padding: 10px;
-          background-color: skyblue;
+          background-color: #4689FF;
           color: #ffffff;
-          border: 1px solid skyblue;
+          border: 1px solid #4689FF;
           border-radius: 2px;
           width: 100%;
         }
@@ -147,7 +147,7 @@
     }
     a{
       text-decoration: none;
-      color: hotpink;
+      color: #4689FF;
       cursor: pointer;
     }
   }

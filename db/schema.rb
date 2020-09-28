@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_16_104212) do
+ActiveRecord::Schema.define(version: 2020_09_28_050303) do
 
   create_table "casa_facilities", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "casa_id"
@@ -24,12 +24,17 @@ ActiveRecord::Schema.define(version: 2020_09_16_104212) do
   create_table "casas", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.text "information"
-    t.text "inportant_information"
+    t.text "important_information"
     t.text "detail"
     t.text "location"
     t.text "cancell"
+    t.text "description"
+    t.float "latitude"
+    t.float "longitude"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_casas_on_user_id"
   end
 
   create_table "facilities", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -45,6 +50,17 @@ ActiveRecord::Schema.define(version: 2020_09_16_104212) do
   end
 
   create_table "nationalities", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "room_name"
+    t.integer "room_type"
+    t.integer "room_bathroom"
+    t.integer "room_grade"
+    t.integer "capacity"
+    t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

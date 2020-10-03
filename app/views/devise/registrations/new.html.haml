@@ -53,7 +53,7 @@
       .field
         = f.label :nationality_id, class: "field__label"
         %br/
-        = f.collection_select(:nationality_id, Nationality.all, :id, :name,{include_blank: "Nationality", class: "blank"}, class: "field__select")
+        = f.collection_select(:nationality_id, Nationality.all, :id, :countryname,{include_blank: "Nationality", class: "blank"}, class: "field__select")
         = icon("far", "flag", class: "field__icon")
       .field-birthday
         = f.label :birthday, class: "field-birthday__label"

@@ -22,6 +22,6 @@ class CasasController < ApplicationController
   private
 
   def casa_params
-    params.require(:casa).permit(:name, :information, :important_information, :detail, :location, :cancell, :description, :latitude, :longitude, images_attributes: [:src, :_destroy, :id]).merge(user_id: current_user.id)
+    params.require(:casa).permit(:name, :information, :important_information, :detail, :location, :cancel, :policy, :check_in, :check_out, :description, :latitude, :longitude, images_attributes: [:src, :_destroy, :id]).merge(user_id: current_user.id)
   end
 end

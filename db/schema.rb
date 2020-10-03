@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_28_050303) do
+ActiveRecord::Schema.define(version: 2020_09_30_060722) do
 
   create_table "casa_facilities", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "casa_id"
@@ -27,13 +27,20 @@ ActiveRecord::Schema.define(version: 2020_09_28_050303) do
     t.text "important_information"
     t.text "detail"
     t.text "location"
-    t.text "cancell"
+    t.text "cancel"
     t.text "description"
+    t.text "policy"
+    t.time "check_in"
+    t.time "check_out"
     t.float "latitude"
     t.float "longitude"
     t.bigint "user_id"
+    t.bigint "shared_room_id"
+    t.bigint "private_room_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["private_room_id"], name: "index_casas_on_private_room_id"
+    t.index ["shared_room_id"], name: "index_casas_on_shared_room_id"
     t.index ["user_id"], name: "index_casas_on_user_id"
   end
 
@@ -50,19 +57,31 @@ ActiveRecord::Schema.define(version: 2020_09_28_050303) do
   end
 
   create_table "nationalities", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.string "countryname"
   end
 
-  create_table "rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "room_name"
-    t.integer "room_type"
-    t.integer "room_bathroom"
-    t.integer "room_grade"
-    t.integer "capacity"
+  create_table "private_rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "privateroom_name"
+    t.integer "privateroom_bathroom"
+    t.integer "privateroom_grade"
+    t.integer "privatecapacity"
     t.text "content"
+    t.bigint "casa_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["casa_id"], name: "index_private_rooms_on_casa_id"
+  end
+
+  create_table "shared_rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "sharedroom_name"
+    t.integer "sharedroom_bathroom"
+    t.integer "sharedroom_grade"
+    t.integer "sharedcapacity"
+    t.text "content"
+    t.bigint "casa_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["casa_id"], name: "index_shared_rooms_on_casa_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -71,8 +90,8 @@ ActiveRecord::Schema.define(version: 2020_09_28_050303) do
     t.string "family_name", null: false
     t.date "birthday", null: false
     t.integer "gender", null: false
-    t.integer "nationality_id", null: false
     t.boolean "admin", default: false
+    t.bigint "nationality_id"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -81,10 +100,13 @@ ActiveRecord::Schema.define(version: 2020_09_28_050303) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["nationality_id"], name: "index_users_on_nationality_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "casa_facilities", "casas"
   add_foreign_key "casa_facilities", "facilities"
   add_foreign_key "images", "casas"
+  add_foreign_key "private_rooms", "casas"
+  add_foreign_key "shared_rooms", "casas"
 end

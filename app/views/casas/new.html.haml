@@ -41,17 +41,32 @@
                     = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
                 - if @casa.persisted?
                   .js-file_group{"data-index" => "#{@casa.images.count}"}
-                    = file_field_tag :src, name: "product[images_attributes][#{@casa.images.count}][src]", class: "js-file"
+                    = file_field_tag :src, name: "casa[images_attributes][#{@casa.images.count}][src]", class: "js-file"
                     .js-remove delete
+      -# .main-form__field__facilities
+      -#   = f.label :facilities, class: "main-form__field__facilities-label"
+      -#   = collection_check_boxes(:casa, :casa_facilities, Facility.all, :id, :facilityname) do |b|
+      -#     = b.label { b.check_box + b.text }
       .main-form__field__important-information
         =f.label :important_information, class: "main-form__field__text-label"
         =f.text_area :important_information, placeholder: "important imformation", class: "main-form__field__text-form"
-      .main-form__field__facilities
-        = f.label :facilities, class: "main-form__field__facilities-label"
-        = collection_check_boxes(:casa, :casa_facilities, Facility.all, :id, :facilityname) do |b|
-          = b.label { b.check_box + b.text }
+      .main-form__field__time
+        = f.label :check_in
+        = f.time_select :check_in, prompt:true, class: "main-form__field__time-select"
+      .main-form__field__time
+        = f.label :check_out
+        = f.time_select :check_out, prompt:true, class: "main-form__field__time-select"
+      .main-form__field__important-information
+        =f.label :policy, class: "main-form__field__text-label"
+        =f.text_area :policy, placeholder: "Policy", class: "main-form__field__text-form"
       .main-form__field__important-information
         =f.label :detail, class: "main-form__field__text-label"
-        =f.text_area :detail, placeholder: "important imformation", class: "main-form__field__text-form"
+        =f.text_area :detail, placeholder: "detail for your hostel", class: "main-form__field__text-form"
+      .main-form__field__important-information
+        =f.label :location, class: "main-form__field__text-label"
+        =f.text_area :location, placeholder: "location imformation", class: "main-form__field__text-form"
+      .main-form__field__important-information
+        =f.label :cancel, class: "main-form__field__text-label"
+        =f.text_area :cancel, placeholder: "cancel policy", class: "main-form__field__text-form"
       .main-form__field__submit
         = f.submit 'Next', class: "main-form__field__submit-btn"

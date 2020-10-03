@@ -5,7 +5,7 @@ $(document).on('turbolinks:load', ()=> {
                   <label data-index="${num}" class="js-file_group" for="product_images_attributes_${num}_src">
                     <i class="fas fa-camera label-box-icon"></i>
                     <pre class="label-box__text-visible">upload image</pre>
-                    <input class="js-file" type="file", name="product[images_attributes][${num}][src]", id="product_images_attributes_${num}_src">
+                    <input class="js-file" type="file", name="casa[images_attributes][${num}][src]", id="product_images_attributes_${num}_src">
                   </label>
                 </div>
                   `;
@@ -34,7 +34,7 @@ $(document).on('turbolinks:load', ()=> {
                   <label data-index="${id}" class="js-file_group" for="product_images_attributes_${id}_src">
                     <i class="fas fa-camera label-box-icon"></i>
                     <pre class="label-box__text-visible">upload image</pre>
-                    <input class="js-file" type="file", name="product[images_attributes][${id}][src]", id="product_images_attributes_${id}_src">
+                    <input class="js-file" type="file", name="casa[images_attributes][${id}][src]", id="product_images_attributes_${id}_src">
                   </label>
                 </div>
                  `;

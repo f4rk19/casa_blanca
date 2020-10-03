@@ -64,6 +64,7 @@
         max-width: 100%;
         #previews{
           display: flex;
+          flex-wrap: wrap;
           .preview-box{
             height: 162px;
             width: 114px;
@@ -230,6 +231,16 @@
     }
     &__important-information{
       margin: 10px;
+    }
+    &__time{
+      margin: 10px;
+      label{
+        display: block;
+        margin: 5px;
+      }
+      input{
+        padding: 5px;
+      }
     }
     &__facilities{
       &-label{

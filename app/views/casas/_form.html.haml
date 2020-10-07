@@ -1,0 +1,80 @@
+.main-form__field
+  =form_with model: @casa, local: true do |f|
+    %h2.main-form__field__title
+      Edit Your Information
+    .main-form__field__text
+      = f.label :name, class: "main-form__field__text-label"
+      = f.text_field :name, placeholder: 'casa name', class: "main-form__field__text-form"
+    .main-form__field__text
+      = f.label :description, class: "main-form__field__text-label"
+      = f.text_field :description, class: 'input-box__description', placeholder: "put address and click search button"
+      = icon("fas","search-location", id: "searchAddressBtn")
+    .map-area
+      #map{:style => "width: 400px; height: 300px;"}
+    .description-box
+      = f.text_field :latitude, id: "post_latitude", readonly: "readonly"
+      =f.text_field :longitude, id: "post_longitude", readonly: "readonly"
+    .main-form__field__text
+      =f.label :information, class: "main-form__field__text-label"
+      =f.text_area :information, placeholder: "main information", class: "main-form__field__text-form"
+    .main-form__field__images
+      %p.main-form__field__images-title
+        Upload your images
+        - if @casa.persisted?
+          #image-box
+            #previews
+              - @casa.images.each_with_index do |image, i|
+                - if image.persisted?
+                  .preview-box{id: "preview-box__#{i}"}
+                    .upper-box
+                      =image_tag image.src.url, data: { index: i}, class: "preview-image", alt: "preview"
+                    .lower-box
+                      .delete-box-edit{id: "delete_btn_#{i}"}
+                        %span delete
+            #labels
+              = f.fields_for :images do |image|
+                #label_edit{class: "label-content^#{image.index}"}
+                  = image.label :src ,{id: "label-box--#{image.index}", class: "js-file_group", "data-index" => "#{image.index}"} do
+                    =icon("fas", "camera", class: "label-box-icon")
+                    %pre.label-box__text-visible
+                    upload %image
+                    =image.file_field :src, class: 'js-file', name: "casa[images_attributes][#{image.index}][src]"
+                    = image.check_box :_destroy, data:{ index: image.index}, class: 'hidden-destroy'
+            #deleted
+        - else
+          #image-box
+            #previews
+            #labels
+              #label.label-content-0
+                = f.fields_for :images do |image|
+                  = image.label :src ,{id:"label-box--#{image.index}", class:"js-file_group", "data-index" => "#{image.index}"} do
+                    =icon("fas","camera",class: "label-box-icon")
+                    %pre.label-box__text-visible upload image
+                    = image.file_field :src, class: 'js-file'
+    -# .main-form__field__facilities
+    -#   = f.label :facilities, class: "main-form__field__facilities-label"
+    -#   = collection_check_boxes(:casa, :casa_facilities, Facility.all, :id, :facilityname) do |b|
+    -#     = b.label { b.check_box + b.text }
+    .main-form__field__important-information
+      =f.label :important_information, class: "main-form__field__text-label"
+      =f.text_area :important_information, placeholder: "important imformation", class: "main-form__field__text-form"
+    .main-form__field__time
+      = f.label :check_in
+      = f.time_select :check_in, prompt:true, class: "main-form__field__time-select"
+    .main-form__field__time
+      = f.label :check_out
+      = f.time_select :check_out, prompt:true, class: "main-form__field__time-select"
+    .main-form__field__important-information
+      =f.label :policy, class: "main-form__field__text-label"
+      =f.text_area :policy, placeholder: "Policy", class: "main-form__field__text-form"
+    .main-form__field__important-information
+      =f.label :detail, class: "main-form__field__text-label"
+      =f.text_area :detail, placeholder: "detail for your hostel", class: "main-form__field__text-form"
+    .main-form__field__important-information
+      =f.label :location, class: "main-form__field__text-label"
+      =f.text_area :location, placeholder: "location imformation", class: "main-form__field__text-form"
+    .main-form__field__important-information
+      =f.label :cancel, class: "main-form__field__text-label"
+      =f.text_area :cancel, placeholder: "cancel policy", class: "main-form__field__text-form"
+    .main-form__field__submit
+      = f.submit 'Next', class: "main-form__field__submit-btn"

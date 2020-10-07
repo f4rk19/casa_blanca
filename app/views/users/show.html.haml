@@ -1,0 +1,11 @@
+.header-form
+  %h1.header-form__title
+    =link_to root_path do
+      %span casa blanca
+.main
+  .main__show
+    .main__show-name
+      = current_user.nickname
+    .main__show-edit
+      = link_to edit_casa_path(@casa.ids) do
+        %span edit your casa

@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   root "casas#index"
 
   resources :casas
+
+  resources :users, only: [:show]
 end

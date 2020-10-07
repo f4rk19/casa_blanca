@@ -3,12 +3,19 @@
 .main
   .main__upper
     .main__upper-slick
-      .slick-list
-        = image_tag "beach-house-1505461_1920.jpg", class: "slick-list__image"
-      .slick-list
-        = image_tag "castle-park-806854_1920.jpg", class: "slick-list__image"
-      .slick-list
-        = image_tag "window-3178666_1920.jpg", class: "slick-list__image"
+      -if @casa.images.present?
+        - @casa.images.each_with_index do |image, i|
+          .slick-list
+            = image_tag image.src.url, data: {index: i}, class: "slick-list__image"
+      - else
+        .slick-list
+          = image_tag "pier-569314_1920.jpg", class:"slick-list__image"
+        .slick-list
+          = image_tag "sunrise-1634197_1920.jpg"
+      -# .slick-list
+      -#   = image_tag "castle-park-806854_1920.jpg", class: "slick-list__image"
+      -# .slick-list
+      -#   = image_tag "window-3178666_1920.jpg", class: "slick-list__image"
   .main__search-form
     %input.main__search-form__text{type: "text", placeholder: "Search by city or hostel name..."}
     %input.main__search-form__date-start{type: "date", value: "2020-01-01"}
@@ -17,9 +24,9 @@
     %input.main__search-form__btn{type: "submit", value: "Search"}
   .main__casa
     .casa__title
-      %span casa sample
+      = @casa.name
     .casa__place
-      %span casa place sample
+      = @casa.description
   .main__nav
     %ul.main__nav-lists
       %li.nav-list.active
@@ -33,7 +40,8 @@
         .nav-content__overview
           .overview-upper
             .overview-upper__introduction
-              %p.overview-upper__introduction-text sample information
+              %p.overview-upper__introduction-text
+                = @casa.information
             .overview-upper__images
               %ul.images__lists
                 %li.images__list
